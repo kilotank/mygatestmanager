@@ -57,7 +57,7 @@ if ( file_exists( dirname( __FILE__ ) . '/local-config.php' ) ) {
 	  $_SERVER["HTTPS"] = "on";
 
 	/** Enable the WordPress Object Cache */
-	define("WP_CACHE", getenv("WP_CACHE") == "true");
+	define("WP_CACHE", getenv("WP_CACHE") == "false");
 
 	/** Disable the built-in cron job */
 	define("DISABLE_WP_CRON", getenv("DISABLE_WP_CRON") == "true");
