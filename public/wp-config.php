@@ -34,7 +34,7 @@ if ( file_exists( dirname( __FILE__ ) . '/local-config.php' ) ) {
 
 	/** MySQL database username */
 	/** define("DB_USER", trim($url["user"])); */
-   /** define('DB_USER', 'bee309e18edae8'); */
+   define('DB_USER', 'bee309e18edae8'); 
 
 	/** MySQL database password */
 	define("DB_PASSWORD", trim($url["pass"]));
