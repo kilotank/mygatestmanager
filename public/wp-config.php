@@ -28,13 +28,14 @@ if ( file_exists( dirname( __FILE__ ) . '/local-config.php' ) ) {
 } else {
 
 	$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+    echo parse_url(getenv("CLEARDB_DATABASE_URL"));
 
 	/** The name of the database for WordPress */
 	 define("DB_NAME", trim($url["path"], "/")); 
 
 	/** MySQL database username */
-	/** define("DB_USER", trim($url["user"])); */
-   define('DB_USER', 'bee309e18edae8'); 
+	define("DB_USER", trim($url["user"])); 
+   /**define('DB_USER', 'bee309e18edae8'); */
 
 	/** MySQL database password */
 	define("DB_PASSWORD", trim($url["pass"]));
