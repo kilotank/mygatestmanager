@@ -30,7 +30,7 @@ if ( file_exists( dirname( __FILE__ ) . '/local-config.php' ) ) {
 	$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
 	/** The name of the database for WordPress */
-	define("DB_NAME", trim($url["path"], "/"));
+	/** define("DB_NAME", trim($url["path"], "/")); */
 
 	/** MySQL database username */
 	define("DB_USER", trim($url["user"]));
