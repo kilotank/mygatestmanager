@@ -1,0 +1,74 @@
+<?php
+/**
+ * Template for the forms extra settings: AJAX, media management, comments support.
+ * 
+ * @var array $context
+ *
+ * @since 2.1.2
+ */
+$context = isset( $context ) ? $context : array();
+
+?>
+<tr>
+	<td>
+		<?php _e( 'Other settings:', 'wp-cred' ); ?>
+	</td>
+	<td>
+		<label class='cred-label-chk'>
+			<input type='checkbox' 
+				class='cred-checkbox-10' 
+				name='_cred[form][hide_comments]' 
+				id='cred_form_hide_comments' 
+				value='1' 
+				/>
+			<span><?php _e( 'Hide comments when displaying this form', 'wp-cred' ); ?></span>
+		</label>
+
+		<label class='cred-label-chk'>
+			<input type='checkbox' 
+				class='cred-checkbox-10' 
+				name='_cred[form][has_media_button]' 
+				id='cred_content_has_media_button' 
+				value='1' 
+				/>
+			<span><?php _e( 'Include the Add Media button in the rich text editors from this form', 'wp-cred' ); ?></span>
+			<span class="cred-tip-link js-cred-tip-link" data-pointer-content="#rich_editor_media_tip">
+				<i class="fa fa-question-circle"></i>
+			</span>
+		</label>
+
+		<label class='cred-label-chk'>
+			<input type='checkbox' 
+				class='cred-checkbox-10' 
+				name='_cred[form][has_toolset_buttons]' 
+				id='cred_content_has_toolset_buttons' 
+				value='1' 
+				/>
+			<span><?php _e( 'Include the Toolset buttons in the rich text editors from this form', 'wp-cred' ); ?></span>
+			<span class="cred-tip-link js-cred-tip-link" data-pointer-content="#rich_editor_toolset_tip">
+				<i class="fa fa-question-circle"></i>
+			</span>
+		</label>
+
+		<div style="display:none">
+			<div id="rich_editor_media_tip">
+				<h3><?php _e( 'Add Media button', 'wp-cred' ); ?></h3>
+				<p>
+					<?php _e( 'This form might contain WYSIWYG fields.', 'wp-cred' ); ?>
+				</p>
+				<p>
+					<?php _e( 'You can enable its <em>Add Media</em> button on them, for users with the right <strong>upload_files</strong> capability (by default, authors and above).', 'wp-cred' ); ?>
+				</p>
+			</div>
+			<div id="rich_editor_toolset_tip">
+				<h3><?php _e( 'Add Toolset buttons', 'wp-cred' ); ?></h3>
+				<p>
+					<?php _e( 'This form might contain WYSIWYG fields.', 'wp-cred' ); ?>
+				</p>
+				<p>
+					<?php _e( 'You can enable the Toolset buttons on them, for users with the right <strong>upload_files</strong> capability (by default, authors and above).', 'wp-cred' ); ?>
+				</p>
+			</div>
+		</div>
+	</td>
+</tr>

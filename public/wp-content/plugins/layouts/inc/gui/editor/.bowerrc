@@ -1,0 +1,13 @@
+{
+  "cwd":".",
+  "directory": "js/",
+  "analytics": false,
+  "timeout": 120000,
+  "registry": {
+    "search": [
+      "https://github.com/",
+      "https://bower.herokuapp.com",
+      "http://localhost"
+    ]
+  }
+}

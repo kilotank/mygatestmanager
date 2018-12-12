@@ -1,0 +1,43 @@
+<?php
+/**
+ * Template for the forms notifications GUI, from section.
+ * 
+ * @var array $notification Data for the current notification
+ * @var string $ii Index for the current notification
+ * @var boolean $enableTestMail
+ * @var string $form_type Post type of the current edited form
+ *
+ * @since 2.1
+ */
+$context = isset( $context ) ? $context : array();
+
+$notification = toolset_getarr( $context, 'notification', array() );
+$ii = toolset_getarr( $context, 'ii', '__i__' );
+$enableTestMail = toolset_getarr( $context, 'enableTestMail', false );
+$form_type = toolset_getarr( $context, 'form_type' );
+
+$notification_html_name = "_cred[notification][notifications][{$ii}]";
+?>
+<fieldset class="cred-fieldset cred-notification-fieldset cred-notification-fieldset-from">
+    <h4><?php _e( 'Notification e-mail from', 'wp-cred' ); ?>:</h4>
+    <p class="cred-label-holder">
+        <label for="cred-notification-sender-email-<?php echo esc_attr( $ii ); ?>">
+            <?php _e( 'Email (leave blank for default):', 'wp-cred' ); ?><br />
+        </label>
+    </p>
+    <input type="text" class="notification-sender-email" 
+        id="cred-notification-sender-email-<?php echo esc_attr( $ii ); ?>" 
+        name='<?php echo esc_attr( $notification_html_name ); ?>[from][address]' 
+        value="<?php echo esc_attr( $notification['from']['address'] ); ?>" 
+        style="width: 100%" />
+    <p class="cred-label-holder">
+        <label for="cred-notification-sender-name-<?php echo esc_attr( $ii ); ?>">
+            <?php _e( 'Name (leave blank for default):', 'wp-cred' ); ?><br />
+        </label>
+    </p>
+    <input type="text" 
+        id="cred-notification-sender-name-<?php echo esc_attr( $ii ); ?>" 
+        name='<?php echo esc_attr( $notification_html_name ); ?>[from][name]' 
+        value="<?php echo esc_attr( $notification['from']['name'] ); ?>" 
+        style="width: 100%" />
+</fieldset>

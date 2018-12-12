@@ -1,0 +1,9 @@
+<div class="code-editor-toolbar cred-content-editor-toolbar js-code-editor-toolbar js-toolset-editor-toolbar js-cred-content-editor-toolbar" data-target="cred_association_form_content">
+	<!-- Action to add Toolset buttons to the Filter editor -->
+	{{ print_content_editor_toolbar_buttons( 'cred_association_form_content' ) }}
+</div>
+<textarea data-bind="value: form_content" id="cred_association_form_content"></textarea>
+
+{% include '@associations/editor_metaboxes/css.twig' %}
+
+{% include '@associations/editor_metaboxes/javascript.twig' %}

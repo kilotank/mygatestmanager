@@ -1,0 +1,79 @@
+<?php
+/**
+ * Template for the post expiration forms settings.
+ * 
+ * @var array $context
+ *
+ * @since 2.1.2
+ */
+$context = isset( $context ) ? $context : array();
+
+// CRED_PostExpiration
+$controller = toolset_getarr( $context, 'cred_post_expiration', null );
+$settings = toolset_getarr( $context, 'settings', array() );
+$field_name = toolset_getarr( $context, 'field_name', '' );
+
+$expiration_period = $settings['expiration_time']['expiration_period'];
+?>
+
+<tr>
+	<td>
+		<?php _e( 'Post expiration:', 'wp-cred' ); ?>
+	</td>
+	<td>
+
+	<label class='cred-label' id="credpostexpirationdiv">
+		<input type="checkbox" name="<?php echo esc_attr( $field_name ); ?>[enable]" value="1" <?php checked( $settings['enable'] ); ?> />
+		<span><?php _e( 'Set expiration date for post created or edited by this form', 'wp-cred' ); ?></span>
+	</label>
+
+	<div class="cred-label cred_post_expiration_panel" style="display: none;">
+
+		<fieldset class="cred-fieldset">
+			<p class="cred-label-holder">
+				<label for="cred_post_expiration_time"><?php _e('Post will expire in:', 'wp-cred' ); ?></label>
+				<span>
+						<input value="<?php echo esc_attr( toolset_getnest( $settings, array( 'expiration_time', 'expiration_date' ), 0 ) ); ?>" class="cred_number_input" type="number" min="0" name="<?php echo esc_attr( $field_name ); ?>[expiration_time][expiration_date]" /></span>
+				 <span>
+					 <select  class="cred_expiration_period_by" name="<?php echo esc_attr( $field_name ); ?>[expiration_time][expiration_period]">
+						 <option value="minutes" <?php selected( 'minutes', $expiration_period ); ?>><?php _e('Minutes', 'wp-cred' ); ?></option>
+						 <option value="hours" <?php selected( 'hours', $expiration_period ); ?>><?php _e('Hours', 'wp-cred' ); ?></option>
+						 <option value="days" <?php selected( 'days', $expiration_period ); ?>><?php _e('Days', 'wp-cred' ); ?></option>
+						 <option value="weeks" <?php selected( 'weeks', $expiration_period ); ?>><?php _e('Weeks', 'wp-cred' ); ?></option>
+					 </select>
+				 </span>
+				 <label><?php _e("from the publish date of the post."); ?></label>
+			</p>
+			<p class="cred-label-holder">
+				<label for="cred_post_expiration_post_status"><?php _e('After expiration change the status of the post to:', 'wp-cred' ); ?></label>
+				<?php
+				$options = apply_filters('cred_pe_post_expiration_post_status', $controller->getActionPostStatus());
+				?>
+				<select id="cred_post_expiration_post_status" name="<?php echo esc_attr( $field_name ); ?>[action][post_status]">
+					<?php foreach ( $options as $value => $text ) { ?>
+						<option value="<?php echo esc_attr( $value ); ?>" <?php selected( $value, $settings['action']['post_status'] ); ?>><?php echo esc_html( $text ); ?></option>
+					<?php } ?>
+				</select>
+			</p>
+			<p class="cred-explain-text">
+				<?php
+				$documentation_link_args = array(
+					'utm_source'	=> 'credplugin',
+					'utm_campaign'	=> 'cred',
+					'utm_medium'	=> 'post-expiration-form-settings',
+					'utm_term'		=> 'Check our documentation on post epiration'
+				);
+				$documentation_link = add_query_arg( $documentation_link_args, CRED_DOC_LINK_AUTOMATIC_POST_EXPIRATION );
+				echo sprintf(
+					'<a href="%1$s" title="%2$s" target="_blank">%3$s %4$s</a>.',
+					esc_url( $documentation_link ),
+					esc_attr( __( 'Check our documentation on post expiration', 'wp-cred' ) ),
+					__( 'Check our documentation on post expiration', 'wp-cred' ),
+					'<i class="fa fa-external-link"></i>'
+				);
+				?>
+			</p>
+		</fieldset>
+	</div>
+	</td>
+</tr>

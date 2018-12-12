@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<ruleset name="ToolsetPHP">
+	<description>Toolset PHP Compatibility Standards</description>
+
+	<config name="testVersion" value="5.3-"/>
+
+	<rule ref="PHPCompatibility">
+        <exclude name="PHPCompatibility.PHP.DefaultTimezoneRequired.Missing"/>
+    </rule>
+
+    <rule ref="Internal.NoCodeFound">
+        <severity>0</severity>
+    </rule>
+    
+    <rule ref="Generic.NamingConventions.CamelCapsFunctionName.MethodDoubleUnderscore">
+    </rule>
+
+    <file>./classes</file>
+    <file>./classes-auto</file>
+    <file>./extra</file>
+    <file>./inc</file>
+    <file>./resources</file>
+</ruleset>

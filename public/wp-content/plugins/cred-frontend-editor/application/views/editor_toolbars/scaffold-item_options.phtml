@@ -1,0 +1,44 @@
+<?php
+/**
+ * underscore.js template for the options of each item in the dialog to insert a Toolset Form scaffold.
+ *
+ * @since m2m
+ */
+?>
+<script type="text/html" id="tmpl-cred-editor-scaffold-itemOptions">
+    <#
+    data = _.extend(
+        { options: {} },
+        data
+    );
+    if ( 'edit' == data.environment.formType ) {
+        data.options = _.omit( data.options, 'valueAndUrl' );
+    }
+    #>
+    <# if ( _.size( data.options ) > 0 ) { #>
+    <i class="fa fa-caret-down fa-fw cred-editor-scaffold-item-options-toggle js-cred-editor-scaffold-item-options-toggle" title="<?php echo esc_attr( __( 'Toggle options', 'wp-cred' ) ); ?>"></i>
+    <div class="cred-editor-scaffold-item-options js-cred-editor-scaffold-item-options hidden">
+        <form>
+        <#
+        _.each( data.options, function( attributeOptions, attributeKey ) {
+            attributeOptions = _.defaults( attributeOptions, { 
+                shortcode: data.shortcode, 
+                attribute: attributeKey,
+                templates: data.templates.shortcodeGui, 
+                defaultValue: '', 
+                required: false, 
+                hidden: false, 
+                placeholder: '' 
+            } );
+            attributeOptions = _.defaults( attributeOptions, { defaultForceValue: attributeOptions.defaultValue } );
+            if ( 'group' == attributeOptions.type ) {
+                print( attributeOptions.templates.attributeGroupWrapper( attributeOptions ) );
+            } else {
+                print( attributeOptions.templates.attributeWrapper( attributeOptions ) );
+            }
+        });
+        #>
+        </form>
+    </div>
+    <# } #>
+</script>

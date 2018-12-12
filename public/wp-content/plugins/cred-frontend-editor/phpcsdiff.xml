@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<ruleset name="Toolset-Types-phpcsdiff">
+    <description>Types Coding Standards for phpcs-diff</description>
+
+    <rule ref="Toolset"/>
+
+    <exclude-pattern>*/autoload_classmap.php</exclude-pattern>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <!-- <exclude-pattern>*.js</exclude-pattern>
+    <exclude-pattern>*.mo</exclude-pattern>
+    <exclude-pattern>*.po</exclude-pattern>
+    <exclude-pattern>*.twig</exclude-pattern>
+    <exclude-pattern>*.css</exclude-pattern>
+    <exclude-pattern>*.scss</exclude-pattern> -->
+</ruleset>

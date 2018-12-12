@@ -1,0 +1,90 @@
+<?php
+/**
+ * underscore.js template for the dialog for inserting a Toolset Form scaffold.
+ *
+ * @since m2m
+ */
+?>
+<script type="text/html" id="tmpl-cred-editor-scaffold-dialog">
+    <p>
+    {{{data.dialog.introduction}}}
+    </p>
+    <div class="cred-editor-scaffold-general-container">
+        <div class="cred-editor-scaffold-options-container" <# if ( 0 == _.size( data.options ) > 0 ) { #> style="display:none;" <# } #>>
+            <h2><?php _e( 'Options', 'wp-cred' ); ?></h2>
+            <ul>
+            <# _.each( data.options, function( scaffoldOption, scaffoldOptionKey ) {
+                scaffoldOption = _.extend(
+                    { checked: false },
+                    scaffoldOption
+                );
+                #>
+                <li>
+                    <label>
+                    <input class="cred-editor-scaffold-options-{{scaffoldOptionKey}} js-cred-editor-scaffold-options-{{scaffoldOptionKey}}" type="checkbox"<# if ( scaffoldOption.checked ) { #> checked="checked"<# } #> />
+                        {{scaffoldOption.label}}
+                    </label>
+                </li>
+                <#
+            }); #>
+            </ul>
+        </div>
+        <div class="cred-editor-scaffold-item-list-container js-cred-editor-scaffold-item-list-container">
+            <h2><?php _e( 'Form elements', 'wp-cred' ); ?></h2>
+            <ul class="cred-editor-scaffold-item-list js-cred-editor-scaffold-item-list">
+            <#
+            if (
+                _.has( data, 'formElements' ) 
+                && _.size( data.formElements ) > 0 
+            ) {
+                _.each( data.formElements, function( field, fieldKey ) {
+                    field = _.defaults( field, { 
+                        environment: data.environment,
+                        templates: data.templates, 
+                        fieldType: 'formElement', 
+                        location: 'bottom' 
+                    } );
+                    if ( 'top' == field.location ) {
+                        print( data.templates.scaffold.item( field ) );
+                    }
+                });
+            }
+            
+            var availableFieldTypes = [ 'basic', 'taxonomy', 'roles', 'meta', 'legacyParent', 'hierarchicalParent', 'relationship' ];
+            _.each( availableFieldTypes, function( availableType ) {
+                if (
+                    _.has( data, availableType ) 
+                    && _.size( data[ availableType ] ) > 0 
+                ) {
+                    _.each( data[ availableType ], function( field, fieldKey ) {
+                        field = _.defaults( field, { 
+                            environment: data.environment,
+                            templates: data.templates, 
+                            fieldType: availableType
+                        } );
+                        print( data.templates.scaffold.item( field ) );
+                    });
+                }
+            });
+
+            if (
+                _.has( data, 'formElements' ) 
+                && _.size( data.formElements ) > 0 
+            ) {
+                _.each( data.formElements, function( field, fieldKey ) {
+                    field = _.defaults( field, { 
+                        environment: data.environment,
+                        templates: data.templates, 
+                        fieldType: 'formElement', 
+                        location: 'bottom' 
+                    } );
+                    if ( 'bottom' == field.location ) {
+                        print( data.templates.scaffold.item( field ) );
+                    }
+                });
+            }
+            #>
+            </ul>
+        </div>
+    </div>
+</script>

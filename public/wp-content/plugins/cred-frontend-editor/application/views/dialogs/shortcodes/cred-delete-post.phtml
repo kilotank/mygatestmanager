@@ -1,0 +1,113 @@
+<?php
+/**
+ * underscore.js template for the dialog for the cred_delete_post_link shortcode.
+ *
+ * @since m2m
+ */
+?>
+<script type="text/html" id="tmpl-cred-delete-post-link-template">
+	<#
+	data = _.extend( 
+		data, 
+		{
+			attributes: {
+				options: {
+					header: '<?php _e( 'Options', 'wp-cred' ); ?>',
+					fields: {
+						action: { 
+							label: '<?php _e( 'Action to perform', 'wp-cred' ); ?>',
+							type: 'radio',
+							options: {
+								trash: '<?php _e( 'Trash the post', 'wp-cred' ); ?>',
+								delete: '<?php _e( 'Delete the post', 'wp-cred' ); ?>'
+							},
+							defaultForceValue: 'trash'
+						},
+						text: { 
+							label: '<?php _e( 'Link text', 'wp-cred' ); ?>',
+							type: 'text',
+							required: true,
+							defaultForceValue: '<?php _e( 'Delete %TITLE%', 'wp-cred' ); ?>'
+						},
+						redirect: {
+							label: '<?php _e( 'Action after deleting the post', 'wp-cred' ); ?> ',
+							type: 'radio',
+							options: {
+								'': '<?php _e( 'Do nothing', 'wp-cred' ); ?>',
+								'reload': '<?php _e( 'Reload the current page', 'wp-cred' ); ?>',
+								toolsetCombo: '<?php _e( 'Redirect to another page', 'wp-cred' ); ?>'
+							},
+							default: ''
+						},
+						'toolsetCombo:redirect': {
+							type: 'ajaxSelect2',
+							action: 'toolset_select2_suggest_posts_by_title',
+							nonce: '<?php echo wp_create_nonce( Toolset_Ajax::CALLBACK_SELECT2_SUGGEST_POSTS_BY_TITLE ); ?>',
+							placeholder: '<?php _e( 'Search for a page to redirect to', 'wp-cred' ); ?>',
+							hidden: true
+						},
+					}
+				},
+				messageOptions: {
+					header: '<?php _e( 'Confirmation messages', 'wp-cred' ); ?>',
+					fields: {
+						message_show: {
+							label: '<?php _e( 'Message before deleting', 'wp-cred' ); ?>',
+							type: 'radio',
+							options: {
+								'0': '<?php _e( 'Do not show a message before deleting the post', 'wp-cred' ); ?>',
+								toolsetCombo: '<?php _e( 'Show a message before deleting the post', 'wp-cred' ); ?>'
+							},
+							defaultValue: 'toolsetCombo'
+						},
+						'toolsetCombo:message_show': {
+							type: 'text',
+							defaultForceValue: '<?php _e( 'Are you sure you want to delete this post?', 'wp-cred' ); ?>'
+						},
+						message_after: {
+							label: '<?php _e( 'Message after deleting', 'wp-cred' ); ?>',
+							type: 'radio',
+							options: {
+								'': '<?php _e( 'Do not show a message after deleting the post', 'wp-cred' ); ?>',
+								toolsetCombo: '<?php _e( 'Show a message after deleting the post', 'wp-cred' ); ?>'
+							},
+							defaultValue: ''
+						},
+						'toolsetCombo:message_after': {
+							type: 'text',
+							defaultForceValue: '<?php _e( 'Post deleted', 'wp-cred' ); ?>',
+							hidden: true
+						}
+					}
+				},
+				styleOptions: {
+					header: '<?php _e( 'Style options', 'wp-cred' ); ?>',
+					fields: {
+						class: { 
+							label: '<?php _e( 'Class', 'wp-cred' ); ?>',
+							type: 'text',
+							description: '<?php _e( 'Space-separated list of classnames that will be added to the anchor HTML tag.', 'wp-cred' ); ?>'
+						},
+						style: { 
+							label: '<?php _e( 'Style', 'wp-cred' ); ?>',
+							type: 'text',
+							description: '<?php _e( 'Inline styles that will be added to the anchor HTML tag.', 'wp-cred' ); ?>'
+						}
+					}
+				},
+				postSelection: {
+					header: '<?php _e( 'Post selection', 'wp-cred' ); ?>',
+					fields: {
+						post: { 
+							label: '<?php _e( 'Post to delete', 'wp-cred' ); ?>',
+							type: 'post',
+							defaultValue: 'current'
+						} 
+					}
+				}
+			}
+		}
+	);
+	#>
+	<# print( data.templates.dialog( data ) ); #>
+</script>

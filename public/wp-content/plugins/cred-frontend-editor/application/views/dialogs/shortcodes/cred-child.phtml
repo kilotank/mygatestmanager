@@ -1,0 +1,79 @@
+<?php
+/**
+ * underscore.js template for the dialog for the cred_child_link_form shortcode.
+ *
+ * @since m2m
+ */
+?>
+<script type="text/html" id="tmpl-cred-create-child-post-link-template">
+	<#
+	data = _.extend( 
+		data, 
+		{
+			attributes: {
+				options: {
+					header: '<?php _e( 'Options', 'wp-cred' ); ?>',
+					fields: {
+						form: { 
+							label: '<?php _e( 'Page that contains the form', 'wp-cred' ); ?>',
+							type: 'ajaxSelect2',
+							action: 'toolset_select2_suggest_posts_by_title',
+							nonce: '<?php echo wp_create_nonce( Toolset_Ajax::CALLBACK_SELECT2_SUGGEST_POSTS_BY_TITLE ); ?>',
+							placeholder: '<?php _e( 'Search for a target page', 'wp-cred' ); ?>',
+							required: true
+						},
+						'parent_id': { 
+							label: '<?php _e( 'Parent post', 'wp-cred' ); ?>',
+							type: 'radio',
+							options: {
+								'': '<?php _e( 'The form includes the parent selector', 'wp-cred' ); ?>',
+								'-1': '<?php _e( 'Set the parent according to the currently displayed content', 'wp-cred' ); ?>',
+								toolsetCombo: '<?php _e( 'Choose a specific parent', 'wp-cred' ); ?>'
+							},
+							defaultValue: ''
+						},
+						'toolsetCombo:parent_id': {
+							type: 'ajaxSelect2',
+							action: 'toolset_select2_suggest_posts_by_title',
+							nonce: '<?php echo wp_create_nonce( Toolset_Ajax::CALLBACK_SELECT2_SUGGEST_POSTS_BY_TITLE ); ?>',
+							placeholder: '<?php _e( 'Search for a parent post', 'wp-cred' ); ?>',
+							hidden: true
+						},
+						text: { 
+							label: '<?php _e( 'Link text', 'wp-cred' ); ?>',
+							type: 'text',
+							required: true,
+							defaultForceValue: '<?php _e( 'Create new', 'wp-cred' ); ?>'
+						},
+						target: {
+							label: '<?php _e( 'Open link in', 'wp-cred' ); ?>',
+							type: 'select',
+							options: {
+								'_self': '<?php _e( 'Current window', 'wp-cred' ); ?>',
+								'_top': '<?php _e( 'Parent window', 'wp-cred' ); ?>',
+								'_blank': '<?php _e( 'New window', 'wp-cred' ); ?>'
+							}
+						}
+					}
+				},
+				styleOptions: {
+					header: '<?php _e( 'Style options', 'wp-cred' ); ?>',
+					fields: {
+						class: { 
+							label: '<?php _e( 'Class', 'wp-cred' ); ?>',
+							type: 'text',
+							description: '<?php _e( 'Space-separated list of classnames that will be added to the anchor HTML tag.', 'wp-cred' ); ?>'
+						},
+						style: { 
+							label: '<?php _e( 'Style', 'wp-cred' ); ?>',
+							type: 'text',
+							description: '<?php _e( 'Inline styles that will be added to the anchor HTML tag.', 'wp-cred' ); ?>'
+						}
+					}
+				}
+			}
+		}
+	);
+	#>
+	<# print( data.templates.dialog( data ) ); #>
+</script>
