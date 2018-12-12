@@ -1,0 +1,267 @@
+2.6
+* Included the Access button in the native GUtenberg paragraph block toolbar.
+* Improved he shortcodes API with hooks.
+
+2.5.2
+* Better API to include or exclude the Access button on editors.
+* Improved compatibility with the Forms setting to include or exclude Toolset buttons on WYSIWYG fields.
+
+2.5.1
+* Fixed a fatal error when removing a custom role that was assigned to users
+
+2.5
+* Fixed conflict with YOAST when rendering layouts custom errors
+* Fixed conflict with KingComposer when loading styles for Access Control page
+* Fixed a conflict with Elementor plugin when rendering a Content Template custom error
+* Fixed an issue with media edit link permissions when WPML is active
+* Fixed an issue when setting read permissions for custom post types
+
+2.4.4
+* Rename Toolset CRED to Toolset Forms in GUI
+
+2.4.3.5
+* Added compatibility with beta versions of Views and Types
+
+2.4.3.4
+* Usability improvements when selecting a custom error layout for an archive page.
+* Fixed a styling issue related to a "Cancel" button in certain Access pop-up dialogs.
+
+2.4.3.3
+* Added the ability to set Layouts as custom errors for WordPress archives for non-integrated themes.
+
+2.4.3.2
+* Fixed an issue with editor permissions to create new post
+* Added next and previous post links when Access permissions are applied
+* Added dashes into the list of allowed symbols in custom capabilities
+* Fixed issue when default custom error for no read permission is set
+
+2.4.3.1
+* Added ability to use theme settings in layout that is set as custom error
+
+2.4.3
+* Fixed an issue with removing level capabilities from custom roles
+* Fixed a caching issue when detecting the current page ID
+* Improved the way that Access settings are handled
+* Fixed an issue when previewing a post that contains a view
+* Improved the way that predefined capabilities are stored
+
+
+2.4.2
+* Added a message to the WPML group dialog when no post types are managed by Access.
+* Fixed an issue with the post type message that was still visible after removing the related post group.
+* Fixed an issue with default post type permissions when WPML is active.
+* Fixed an issue with Select2 dropdown in the post group dialog.
+* Fixed an issue with post permissions in the search results of the WordPress dialog for inserting links to posts and pages. Now, search results will list only content that current user has permission to access.
+* Fixed an issue with permissions for the "next" and "previous" navigation links.
+* Fixed an issue with WPML group permissions when the related post type's name contains the space character.
+
+2.4.1
+* Fixed an issue with previewing published posts.
+
+2.4
+* Added options to post types permission table (Managed by Access, Has same read permission as posts, Uses the default WordPress read permissions).
+* Added feature to change capabilities for built-in roles when advanced mode is enabled.
+* Added feature to preview custom errors for post types, post groups, and WPML groups.
+* Fixed an issue with the layout assigned to posts that contain visual editor or post content cell, when another layout is set as custom error.
+* Fixed an issue with the network administrator menu, which was visible for local admins in multisite installations.
+* Fixed an issue with wrong permissions when user switched language in profile page.
+* Fixed an issue with layouts custom errors for archives that affected post types not managed by Access.
+* Fixed a conflict  related to CSS classes between Access and other Toolset plugins.
+* Fixed an issue with editing and deleting published posts for roles without publish permissions.
+* Fixed an issue with the post group metabox that was displayed in media edit page.
+* Fixed usability issue in taxonomies regarding the Same as category option, when the assigned post type is not managed by Access.
+* Fixed an issue with importing settings with only one role.
+* Fixed an issue about post group dialog, in order to exclude post types that are not managed by Access.
+* Fixed an issue with non-Latin characters in role creation dialog.
+* Fixed an issue about post group dialog, in order to exclude posts already assigned to the current group
+* Fixed an issue with custom errors import when Layouts is disabled.
+* Fixed an issue where adding new role  was resetting CRED forms and Types groups settings.
+* Fixed an issue about user assignment to Types groups.
+* Fixed an issue about edit permissions when WPML is enabled.
+* Fixed an issue about default permissions for post types.
+
+2.3.1
+* Fixed an issue with read permissions for guests
+
+2.3
+* Added ability to erase Access settings and custom roles from the database.
+* Added Access button to Views, Content Templates and WordPress Archives editors
+* Added a feature to set Layouts as custom errors for single pages and WordPress Archives
+* Added filter to exclude forbidden posts from WordPress menus
+* Added raw attribute to the toolset_access shortcode GUI
+* Added additional tab to the role capabilities dialog box, which lists unattended capabilities
+* Added support for user language setting
+* Improved the Access shortcode GUI by adding it to frontend editors
+* Improved the Access shortcode GUI by adding it to the Toolset shortcodes generator in the Admin bar
+* Fixed Access shortcode GUI problem, when adding shortcode without operator
+* Commas and quotes symbols no longer acceptable for role name
+* Fixed the problem with the custom post types archive error when changing to 'No posts found' option
+* Fixed the problem faced when exporting Post Groups with a & symbol
+* Fixed the problem faced when exporting and importing custom errors with content template or views archives
+* Fixed issue with language read permission when post type is not managed by Access
+* Fixed the issue with non-latin characters in WPML Groups and Post Groups
+* Fixed the issue with permission tables on small screen resolutions
+* Fixed the issue faced when Access changes default exclude_from_search parameter for custom post type.
+* Fixed the issue with administrator permissions for private posts
+* Fixed issue with CRED forms columns, making the only the first column sticky when there are more than eight columns.
+* Fixed issue with child and parent post type permissions in the admin menu.
+* Disabled CRED user form permission options for guests
+
+2.2.2
+* Fixed compatibility issues with WordPress 4.7
+* Fixed the problem with WPML language switcher and non-logged users
+* Fixed an issue with the wpcf_access_get_current_page method when WPML plugin is deactivated
+
+2.2.1
+* Improved Access control table when there are more than 8 CRED forms
+* Fixed issue with custom post type permissions in Types relationship tables
+* Fixed issue when importing CRED forms
+* Fixed issue with permissions in Views WordPress Archives when using AJAX search or pagination
+* Fixed issue when saving CRED form settings in a fresh WordPress installation
+
+2.2
+* Added a new role-based system and deprecated the old level-based system
+* Added a new role management listing page and a form to add a new role
+* Revamped the Access Control graphical user interface
+* Improved the performance when loading WPML permissions on post listings
+* Improved the functionality to determine post ID on the front-end
+* Improved the post search functionality when adding or modifying post groups
+* Prepared for compatibility with WordPress 4.6
+* Fixed the permission preview issue
+* Fixed the CRED forms setting import issue
+* Fixed the custom capability deletion issue
+
+
+2.1 AKA Access Denied
+* Added an API to register custom tabs in the Access Control admin page.
+* Separated the Types fields and CRED forms settings into their own tabs on the Access Control admin page.
+* Improved the admin screen headers by using h1 tags, as suggested by WordPress.
+* Fixed the Access Control tab invalidation, so when modifying something that affects other tabs, those tabs need to be recreated.
+* Fixed a problem that was hidding the button to apply a post revision.
+* Fixed a problem when checking arbitrary user permissions using user_can().
+* Fixed a problem when setting combinations of capabilities for managing taxonomies.
+
+2.0 AKA Access Granted
+* Added Access to the new shared Toolset admin menu, and Export / Import page.
+* Revamped the Access Control admin page with tabs and AJAX reload.
+* Improved the dialog to insert the Access shortcode.
+* Improved the compatibility with WPML and bbPress by reviewing the order of execution of some actions.
+* Fixed an issue related to permissions for native post types.
+* Fixed an issue related to permissions for guest users.
+* Fixed an issue related to importing data containing no settings for some posts types.
+
+1.2.8.1
+* Fixed a compatibility problem with WPML and bbPress related to loading user information too early
+
+1.2.8
+* Fixed a compatibility problem with WPML language settings when granting access to guest users
+
+1.2.7.5
+* Fix problem with PHP versions less than 5.3
+
+1.2.7.4
+* Fix read permissions for post types
+* Fix errors when WPML not installed
+* Fix problem. Admin cannot remove Types capabilites from custom roles.
+
+1.2.7.3
+* Fix incorrect permissions for guests when WPML installed
+* Fix read permissions for custom post types
+
+1.2.7.2
+* Fix comments not displayed to custom roles on WordPress dashboard
+* Fix Types fields permissions for administrators
+
+1.2.7
+* Performance improvements: Optimized read, edit, and delete permissions flow that reduce page loading time.
+* Added ‘WPML groups’ that allow the user to configure read, edit, and delete permissions for post types and languages.
+
+1.2.6.1
+* Fixed problem with PHP version less than 5.4
+
+1.2.6
+* Fixed a problem where Access could not determine the correct site URL if a port was used, for example: sitename.com:8080
+* Colorbox dialogs were replaced by native Wordpress dialogs
+* Added Types role capabilities to the permission dialog
+* Fixed a conflict with Visual Composer and Font Awesome on the Access settings page
+* Fixed permissions for the page that used as the static front page
+* Removed deprecated Woocommerce capabilities
+
+1.2.5
+* Fixed a problem with suggest user script.
+
+1.2.4
+* Fixed Access shortcode: it now accepts role names with lowercase and uppercase letters.
+* Fixed an issue with custom errors with PHP template: it now works for parent and child theme PHP templates.
+* Added groups permissions to feeds. Works only when the post type exists in the feed query.
+* Added Access button to all TinyMCE editors on the post/page editing pages.
+* Added the notification dialog that is shown when the post fields on the edit Access settings page exceed the "max_input_vars" PHP setting.
+* Added the options to set the user capabilities for the Layouts plugin.
+* Fixed function to get the current page.
+* Added new Access capabilities that allow users to assign single posts to Access groups.
+* Added new filter that allows advanced users to hide Access button from all editors.
+* Security improvements.
+
+1.2.3
+* Fixed a problem where the assignment of specific userвЂ™s permissions wasnвЂ™t working for custom groups.
+* Fixed a problem of PHP notice being thrown because the $raw attribute was missing for the Access shortcode.
+* Fixed a problem where headings for Post and User Meta Fields groups were being shown in Access admin page even when no actual groups existed.
+* Fixed a problem where WYSIWYG field created with Advanced Custom Fields plugin wasnвЂ™t working correctly when Access plugin was activate: http://toolset.com/forums/topic/advanced-custom-fiels-access-plugin-bug-with-wysiwyg-editor/
+
+1.2.2
+* Improved function for load custom read errors
+* Improved Import/Export flow
+* Fixed permissions for media in admin
+* Added option 'Read others preview'
+* Added ability to add custom caps
+* Added custom roles, custom caps to export/import
+* Allow set permissions for posts types where singular name=plural name
+
+1.2.1
+* Performance optimizations
+* Added custom errors for post type archive
+* Added new button for save Access sections separately
+* Read permissions bug fixes
+* Added new shortcode toolset_access for set access to part of content in editors
+* Added GUI for new Access shortcode
+* Added custom capabilities support
+* Some backend html/css fixes
+
+1.2
+* Fixed a bug with applying read permission for post types
+* Added an option to control read permissions for individual posts, pages and custom types
+* Added an option to choose what to display when users don't have read access
+* Added capability management, allowing to enable different WordPress capabilities to custom roles
+* Automatically update role capabilities when the level is changed
+* GUI enhancements
+* Performance optimizations
+* Added support for new WPML capabilities
+* Added support for WooCommerce capabilities
+* $wpdb->escape() is deprecated, use esc_sql() instead
+
+1.1.7
+* delete role button not working, fixed
+* Fix compatibility with iThemes Builder
+
+1.1.6
+* added changelog.txt
+* add DB auto-update process on activation
+* added import / export functionality and admin page
+* partial refactoring, reduced files, used Classes, used Helper, Model for abstractions
+* made Access standalone plugin, removed DB dependency on Types also
+* Access working with Types embedded fixed
+* added WPML localisation for custom roles
+* when no role (other than admin) selected for a capabilitty, all roles are selected, fixed
+* specific users 3rd-party capabilities managed correctly, fixed
+* post/page/custom posts specific users capabilities managed correctly, fixed
+* fixed managing 3rd-party Taxonomies and correctly release from Access control
+* fixed user auto-suggest missing last-typed characters
+* made Access admin screen responsive
+* added 'Back to Top' links for easy navigation
+* speed improvements (less loaded files, less hooks, use of caching if possible, minified/merged styles and scripts)
+* new implementation of 'Same as parent' for taxonomies
+* keep track of Access' created custom roles
+* default mode of (shared) taxonomies is 'not_managed' for uniform handling of imported capabilities
+* add warning if entity (post type/taxonomy) capabilities conflict with default WP capabilities
+* add full notices when saving Access settings via ajax, in admin screen
+* use jQuery.on instead of jQuery.live in Access admin scripts
